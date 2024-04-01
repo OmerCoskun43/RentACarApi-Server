@@ -15,7 +15,10 @@
   },
   "host": "127.0.0.1:8000",
   "basePath": "/",
-  "schemes": ["http", "https"],
+  "schemes": [
+    "http",
+    "https"
+  ],
   "securityDefinitions": {
     "Token": {
       "type": "apiKey",
@@ -30,12 +33,18 @@
       "description": "JWT Authentication * Example: <b>Bearer ...accessToken...</b>"
     }
   },
-  "consumes": ["application/json"],
-  "produces": ["application/json"],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/auth/login": {
       "post": {
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "summary": "Login",
         "description": "Login with username (or email) and password for get simpleToken and JWT",
         "parameters": [
@@ -67,7 +76,9 @@
     },
     "/auth/refresh": {
       "post": {
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "summary": "JWT: Refresh",
         "description": "Refresh accessToken with  ",
         "parameters": [
@@ -100,7 +111,9 @@
     },
     "/auth/logout": {
       "get": {
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "summary": "SimpleToken: Logout",
         "description": "Delete token key.",
         "responses": {
@@ -112,7 +125,9 @@
     },
     "/users/": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "List Users",
         "description": "\r  You can send query with endpoint for search[], sort[], page and limit.\r  <ul> Examples:\r   <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>\r   <li>URL/?<b>sort[field1]=1&sort[field2]=-1</b></li>\r   <li>URL/?<b>page=2&limit=1</b></li>\r  </ul>\r  ",
         "responses": {
@@ -122,7 +137,9 @@
         }
       },
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Create User",
         "description": "",
         "parameters": [
@@ -170,7 +187,9 @@
     },
     "/users/{id}": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Get Single User",
         "description": "",
         "parameters": [
@@ -188,7 +207,9 @@
         }
       },
       "put": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Update User",
         "description": "",
         "parameters": [
@@ -240,7 +261,9 @@
         }
       },
       "delete": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Delete User",
         "description": "",
         "parameters": [
@@ -261,7 +284,9 @@
         }
       },
       "patch": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Update User",
         "description": "",
         "parameters": [
@@ -315,14 +340,22 @@
     },
     "/cars/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Car"
+        ],
+        "summary": "List cars",
+        "description": "You can send query with endpoint for search[], sort[], page and limit.",
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
           }
         }
       },
       "post": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Create car",
         "description": "",
         "responses": {
           "201": {
@@ -331,35 +364,12 @@
         }
       }
     },
-    "/cars/avaliableCarsList": {
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "startDate": {
-                  "example": "any"
-                },
-                "endDate": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/cars/{id}": {
       "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Get Single car",
         "description": "",
         "parameters": [
           {
@@ -376,6 +386,10 @@
         }
       },
       "put": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Update car",
         "description": "",
         "parameters": [
           {
@@ -408,8 +422,43 @@
         }
       }
     },
+    "/cars/avaliableCarsList": {
+      "post": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "List avaliable cars",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "startDate": {
+                  "example": "any"
+                },
+                "endDate": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/reservations/{id}/availability": {
       "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "summary": "List reservated cars",
         "description": "",
         "parameters": [
           {
@@ -428,14 +477,22 @@
     },
     "/reservations/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Reservation"
+        ],
+        "summary": "List reservations",
+        "description": "You can send query with endpoint for search[], sort[], page and limit.",
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
           }
         }
       },
       "post": {
+        "tags": [
+          "Reservation"
+        ],
+        "summary": "Create reservation",
         "description": "",
         "parameters": [
           {
@@ -466,6 +523,10 @@
     },
     "/reservations/{id}": {
       "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "summary": "Get Single reservation",
         "description": "",
         "parameters": [
           {
@@ -482,6 +543,10 @@
         }
       },
       "put": {
+        "tags": [
+          "Reservation"
+        ],
+        "summary": "Update reservation",
         "description": "",
         "parameters": [
           {
@@ -514,6 +579,10 @@
         }
       },
       "patch": {
+        "tags": [
+          "Reservation"
+        ],
+        "summary": "Update reservation",
         "description": "",
         "parameters": [
           {
@@ -586,7 +655,10 @@
             },
             "required": {
               "type": "array",
-              "example": [true, "Email field must be required"],
+              "example": [
+                true,
+                "Email field must be required"
+              ],
               "items": {
                 "type": "string"
               }
@@ -603,7 +675,10 @@
             },
             "validate": {
               "type": "array",
-              "example": [null, "Email type is not correct."],
+              "example": [
+                null,
+                "Email type is not correct."
+              ],
               "items": {
                 "type": "string"
               }

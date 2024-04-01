@@ -18,8 +18,7 @@ const {
 
 router.route("/").get(list).post(isAdmin, create);
 
-router.route("/avaliableCarsList").post(avaliableCarsList);
-
 router.route("/:id").put(isAdmin, update).get(read).delete(isAdmin, _delete);
+router.route("/avaliableCarsList").post(avaliableCarsList);
 
 module.exports = router;

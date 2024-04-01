@@ -46,21 +46,18 @@ app.use(require("./src/middlewares/findSearchSortPage"));
 // Routes:
 
 // HomePath:
-app.all(
-  "https://rent-a-car-api-server-bsuf2c3jl-omercoskun43s-projects.vercel.app/",
-  (req, res) => {
-    res.send({
-      error: false,
-      message: "Welcome to RENT A CAR API",
-      documents: {
-        swagger: "/documents/swagger",
-        redoc: "/documents/redoc",
-        json: "/documents/json",
-      },
-      user: req.user,
-    });
-  }
-);
+app.all("/", (req, res) => {
+  res.send({
+    error: false,
+    message: "Welcome to RENT A CAR API",
+    documents: {
+      swagger: "/documents/swagger",
+      redoc: "/documents/redoc",
+      json: "/documents/json",
+    },
+    user: req.user,
+  });
+});
 
 // Routes:
 app.use(require("./src/routes"));

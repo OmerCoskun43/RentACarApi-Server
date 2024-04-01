@@ -9,6 +9,14 @@ const Reservation = require("../models/reservation");
 
 module.exports = {
   list: async (req, res) => {
+    /*
+  #swagger.tags = ['Car']
+  #swagger.summary = 'List cars'
+  #swagger.description = 'You can send query with endpoint for search[], sort[], page and limit.
+
+  
+  
+   */
     const data = await res.getModelList(Car, {}, ["createdId", "updatedId"]);
 
     res.status(200).send({
@@ -19,6 +27,10 @@ module.exports = {
     });
   },
   create: async (req, res) => {
+    /*
+    #swagger.tags = ['Car']
+    #swagger.summary = 'Create car'
+    */
     const data = await Car.create(req.body);
 
     res.status(201).send({
@@ -28,6 +40,10 @@ module.exports = {
     });
   },
   read: async (req, res) => {
+    /*
+    #swagger.tags = ['Car']
+    #swagger.summary = 'Get Single car'
+     */
     const data = await Car.findOne({ _id: req.params.id }).populate([
       "createdId",
       "updatedId",
@@ -40,6 +56,10 @@ module.exports = {
     });
   },
   update: async (req, res) => {
+    /*
+    #swagger.tags = ['Car']
+    #swagger.summary = 'Update car'
+    */
     const data = await Car.updateOne({ _id: req.params.id }, req.body, {
       runValidators: true,
     });
@@ -52,6 +72,10 @@ module.exports = {
     });
   },
   delete: async (req, res) => {
+    /*
+    #swagger.tags = ['Car']
+  #swagger.summary = 'Delete car'
+    */
     const data = await Car.deleteOne({ _id: req.params.id });
 
     const { deletedCount } = data;
@@ -63,6 +87,10 @@ module.exports = {
   },
 
   avaliableCarsList: async (req, res) => {
+    /*
+    #swagger.tags = ['Car']
+    #swagger.summary = 'List avaliable cars'
+    */
     const { startDate, endDate } = req.body;
     const sDate = new Date(startDate);
     const eDate = new Date(endDate);
@@ -103,8 +131,3 @@ module.exports = {
     });
   },
 };
-
-// const data = await Reservation.find({
-//   startDate: { $gte: sDate },
-//   endDate: { $lte: eDate },
-// }).populate("carId");
