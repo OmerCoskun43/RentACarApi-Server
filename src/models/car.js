@@ -27,6 +27,13 @@ const CarSchema = new mongoose.Schema(
       trim: true,
       required: true,
     },
+
+    images: [
+      {
+        type: String,
+        trim: true,
+      },
+    ],
     isAutomatic: {
       type: Boolean,
       default: true,
