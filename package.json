@@ -1,6 +1,6 @@
 {
   "title": "Rent A Car API",
-  "name": "renacarapi",
+  "name": "rentacarapi",
   "version": "1.0.0",
   "description": "Rent A Car Management System",
   "main": "index.js",
