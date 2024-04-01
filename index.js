@@ -8,6 +8,10 @@ const app = express();
 /* ------------------------------------------------------- */
 // Required Modules:
 
+//! cors
+const cors = require("cors");
+app.use(cors());
+
 // envVariables to process.env:
 require("dotenv").config();
 const HOST = process.env?.HOST || "127.0.0.1";
