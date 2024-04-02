@@ -11,7 +11,6 @@ const ReservationSchema = new mongoose.Schema(
       ref: "User",
       required: true,
       index: true,
-      unique: true,
     },
 
     carId: {
@@ -19,7 +18,6 @@ const ReservationSchema = new mongoose.Schema(
       ref: "Car",
       required: true,
       index: true,
-      unique: true,
     },
 
     startDate: {
