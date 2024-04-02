@@ -10,14 +10,12 @@ const ReservationSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      index: true,
     },
 
     carId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Car",
       required: true,
-      index: true,
     },
 
     startDate: {
