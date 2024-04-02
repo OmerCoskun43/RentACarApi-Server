@@ -57,10 +57,7 @@ module.exports = {
       }
     }
 
-    const data = await Reservation.create(req.body).populate([
-      "userId",
-      "carId",
-    ]);
+    const data = await Reservation.create(req.body);
 
     res.status(200).send({
       error: false,
