@@ -137,4 +137,23 @@ module.exports = {
       data,
     });
   },
+
+  userReservationList: async (req, res) => {
+    /*
+    #swagger.tags = ['Reservation']
+    #swagger.summary = 'List reservated cars'
+    
+    
+  */
+
+    const data = await Reservation.find({ userId: req.params.id }).populate([
+      "userId",
+      "carId",
+    ]);
+    res.status(200).send({
+      error: false,
+      message: "Reservation Listed successfully",
+      data,
+    });
+  },
 };

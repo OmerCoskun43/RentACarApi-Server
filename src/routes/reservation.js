@@ -13,11 +13,13 @@ const {
   update,
   delete: _delete,
   carReservationList,
+  userReservationList,
 } = require("../controllers/reservation");
 
 const { isLogin, isAdmin } = require("../middlewares/permissions");
 
 router.route("/:id/availability").get(isLogin, carReservationList);
+router.route("/:id/reservations").get(isLogin, userReservationList);
 
 router.route("/").get(isLogin, list).post(isLogin, create);
 router
