@@ -17,7 +17,9 @@ module.exports = {
   
   
    */
-    const data = await res.getModelList(Car, {}, ["createdId", "updatedId"]);
+    const data = await res
+      .getModelList(Car, {}, ["createdId", "updatedId"])
+      .sort({ createdAt: -1 });
 
     res.status(200).send({
       error: false,
